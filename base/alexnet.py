@@ -6,8 +6,7 @@ class Alexnet(object):
         print("Alex net")
         self.trainable = trainable
         try:
-            with tf.variable_scope('output'):
-                self.predict = self.__build_network(input_x, class_num)
+            self.predict = self.__build_network(input_x, class_num)
         except:
             raise NotImplementedError("Can not build up alex network!")
         self.y = input_y
@@ -47,7 +46,9 @@ class Alexnet(object):
         dropout7 = commom.drop_out(fc7, 0.5)
 
         fc8 = commom.fc(dropout7, 512, class_num, relu=False, name='fc8', trainable=self.trainable)
-        predict = tf.nn.softmax(fc8)
+
+        with tf.variable_scope('output'):
+            predict = tf.nn.softmax(fc8, name="output")
 
         return predict
 

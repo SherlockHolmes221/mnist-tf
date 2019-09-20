@@ -18,7 +18,7 @@ class MnistTrain(object):
         self.train_dataset = Dataset('train')
         self.test_dataset = Dataset('test')
 
-        with tf.name_scope('define_input'):
+        with tf.name_scope('input'):
             self.input_x = tf.placeholder(dtype=tf.float32, name='input_x', shape=[None, 28, 28, 1])
             self.input_y = tf.placeholder(dtype=tf.float32, name='input_y', shape=[None, 10])
             self.trainable = tf.placeholder(dtype=tf.bool, name='training')

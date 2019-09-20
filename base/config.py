@@ -16,5 +16,7 @@ TRAIN_EPOCH = 1
 
 
 PB_FILE = "./model/mnist_tf.pb"
-CKPT_FILE = "./model/mnist_tf.ckpt"
-NODE_NAMES = ["input/input_data", "output/output_data"]
+CKPT_FILE = "./output/checkpoint/minist_test_loss=1.7715.ckpt-0"
+
+NODE_NAMES = ["input/input_x", "input/input_y", "output/output"]
+NODE_NAMES_1 = ["input/input_x:0", "input/input_y:0", "output/output:0"]
